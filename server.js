@@ -1,10 +1,10 @@
-var express		= require('express');
-var app			= express();
-var session 	= require('express-session');
-var request 	= require('request');
+var express	= require('express');
+var app	= express();
+var session = require('express-session');
+var request = require('request');
 
 /* JsonDB */
-var JsonDB 						 = require('node-json-db');
+var JsonDB = require('node-json-db');
 
 // show device list for mobile apps
 app.get('/load/allData/:rpiId', function(req, res) {
@@ -156,7 +156,7 @@ function filterDevices(getDevice, zoneId, jsonDb, commandVal){
 					jsonDb.push("/zone/" + zoneId, {status : "on"}, false); 
 				break;
 			}
-			getDevice.command = 'AC/' + getDevice.command;
+			getDevice.command = getDevice.command;
 		break;
 		case 'light' :
 			switch(commandVal) {
