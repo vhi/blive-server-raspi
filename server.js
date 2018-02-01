@@ -148,7 +148,7 @@ function filterDevices(getDevice, zoneId, jsonDb, commandVal){
 	
 	switch (getDevice.sort) {
 		case 'ac' :
-			command = "AC" ;
+			command = "AC/" ;
 			// 1 = ON, 5 = OFF
 			switch(commandVal) {
 				case '5':
@@ -159,6 +159,7 @@ function filterDevices(getDevice, zoneId, jsonDb, commandVal){
 				break;
 			}
 			getDevice.command = command + getDevice.command;
+			command = "";
 		break;
 		case 'light' :
 			switch(commandVal) {
