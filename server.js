@@ -145,8 +145,10 @@ function sendToCloud(data, userId){
 }
 
 function filterDevices(getDevice, zoneId, jsonDb, commandVal){
+	
 	switch (getDevice.sort) {
 		case 'ac' :
+			command = "AC" ;
 			// 1 = ON, 5 = OFF
 			switch(commandVal) {
 				case '5':
@@ -156,7 +158,7 @@ function filterDevices(getDevice, zoneId, jsonDb, commandVal){
 					jsonDb.push("/zone/" + zoneId, {status : "on"}, false); 
 				break;
 			}
-			getDevice.command = getDevice.command;
+			getDevice.command = command + getDevice.command;
 		break;
 		case 'light' :
 			switch(commandVal) {
