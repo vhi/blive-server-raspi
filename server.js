@@ -148,7 +148,6 @@ function filterDevices(getDevice, zoneId, jsonDb, commandVal){
 	
 	switch (getDevice.sort) {
 		case 'ac' :
-			command = "AC/" ;
 			// 1 = ON, 5 = OFF
 			switch(commandVal) {
 				case '5':
@@ -157,9 +156,10 @@ function filterDevices(getDevice, zoneId, jsonDb, commandVal){
 				case '1':
 					jsonDb.push("/zone/" + zoneId, {status : "on"}, false); 
 				break;
+				default:
+
+				break;
 			}
-			getDevice.command = command + getDevice.command;
-			command = "";
 		break;
 		case 'light' :
 			switch(commandVal) {
@@ -178,7 +178,6 @@ function filterDevices(getDevice, zoneId, jsonDb, commandVal){
 			else { 
 				jsonDb.push("/zone/" + zoneId, {status : "on"}, false); 
 			}
-			getDevice.command = 'TV/' + getDevice.command;
 		break;
 	}
 }
