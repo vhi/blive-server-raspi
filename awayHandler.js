@@ -16,15 +16,15 @@ try {
 		      		loadJsonDb = new JsonDB('fileJson', true, false);
 		      		dbRaspi = loadJsonDb.getData("/");
 		      		dbCloud = body;
-		      		if (dbRaspi == dbCloud) {
-		          		// console.log('no update');
+		      		if (JSON.stringify(dbRaspi) == dbCloud) {
+		          		console.log('no update');
 		      		}
 		      		else {
+		      			console.log('any update');
 		      			parseJsonCloud = JSON.parse(dbCloud);
 		      			// parseJsonRaspi = JSON.parse(dbRaspi);
 		      			zoneDevicesCloud = parseJsonCloud.zone;
 		      			zoneDevicesRaspi = dbRaspi.zone;
-
 		      			for (var x in zoneDevicesCloud) {
 		      				if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
 		      					command = "";
@@ -80,11 +80,8 @@ try {
 		      					}
 		      				}
 		      			}
+		      			loadJsonDb.push("/", parseJsonCloud, false);
 		      		}
-		      		var fs = require('fs');
-					var writeDb = fs.createWriteStream('fileJson.json', {flags: 'w'});
-					writeDb.write(parseJsonCloud);
-		      		// loadJsonDb.push("/", parseJsonCloud, false);
 		      	}
 		      	else{
 		            console.log('error: ' + error);
