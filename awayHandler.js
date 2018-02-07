@@ -81,8 +81,10 @@ try {
 		      				}
 		      			}
 		      		}
-
-		      		loadJsonDb.push("/", parseJsonCloud, false);
+		      		var fs = require('fs');
+					var writeDb = fs.createWriteStream('fileJson.json', {flags: 'w'});
+					writeDb.write(parseJsonCloud);
+		      		// loadJsonDb.push("/", parseJsonCloud, false);
 		      	}
 		      	else{
 		            console.log('error: ' + error);
