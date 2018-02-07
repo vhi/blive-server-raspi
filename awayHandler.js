@@ -6,26 +6,26 @@ try {
 
 	/* JsonDB */
 	var JsonDB = require('node-json-db');
-		var requestLoop = setInterval(function(){
-		  	request({
-		      	url: "http://119.235.252.13:777/load/jsonForRaspberry/9988776655",
-		      	method: "GET",
-				async: true,
-		  	},function(error, response, body){
-		      	if(!error && response.statusCode == 200){
-		      		loadJsonDb = new JsonDB('fileJson', true, false);
-		      		dbRaspi = loadJsonDb.getData("/");
-		      		dbCloud = body;
-		      		if (JSON.stringify(dbRaspi) == dbCloud) {
-		          		console.log('no update');
-		      		}
-		      		else {
-		      			console.log('any update');
-		      			parseJsonCloud = JSON.parse(dbCloud);
-		      			// parseJsonRaspi = JSON.parse(dbRaspi);
-		      			zoneDevicesCloud = parseJsonCloud.zone;
-		      			zoneDevicesRaspi = dbRaspi.zone;
-		      			for (var x in zoneDevicesCloud) {
+	var requestLoop = setInterval(function(){
+	  	request({
+	      	url: "http://119.235.252.13:777/load/jsonForRaspberry/9988776655",
+	      	method: "GET",
+			async: true,
+	  	},function(error, response, body){
+	      	if(!error && response.statusCode == 200){
+	      		loadJsonDb = new JsonDB('fileJson', true, false);
+	      		dbRaspi = loadJsonDb.getData("/");
+	      		dbCloud = body;
+	      		if (JSON.stringify(dbRaspi) == dbCloud) {
+	          		// console.log('no update');
+	      		}
+	      		else {
+	      			// console.log('any update');
+	      			parseJsonCloud = JSON.parse(dbCloud);
+	      			// parseJsonRaspi = JSON.parse(dbRaspi);
+	      			zoneDevicesCloud = parseJsonCloud.zone;
+	      			zoneDevicesRaspi = dbRaspi.zone;
+	      			for (var x in zoneDevicesCloud) {
 		      				if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
 		      					command = "";
 		      					if (zoneDevicesCloud[x].status_from == "away") {
@@ -79,15 +79,15 @@ try {
 		      						}
 		      					}
 		      				}
-		      			}
-		      			loadJsonDb.push("/", parseJsonCloud, false);
-		      		}
-		      	}
-		      	else{
-		            console.log('error: ' + error);
-		      	}
-		  	});
-		}, 1000);
+	      			}
+	      			loadJsonDb.push("/", parseJsonCloud, false);
+	      		}
+	      	}
+	      	else{
+	            console.log('error: ' + error);
+	      	}
+	  	});
+	}, 1000);
 	app.listen(9191, function() {
 		console.log('server has been start with port: 9191');
 	});
