@@ -13,7 +13,7 @@ try {
 			async: true,
 	  	},function(error, response, body){
 	      	if(!error && response.statusCode == 200){
-	      		loadJsonDb = new JsonDB('fileJson', true, false);
+	      		loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
 	      		dbRaspi = loadJsonDb.getData("/");
 	      		dbCloud = body;
 	      		if (JSON.stringify(dbRaspi) == dbCloud) {
