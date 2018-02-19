@@ -100,7 +100,7 @@ function loadJsonDb(){
 	//The second argument is used to tell the DB to save after each push 
 	//If you put false, you'll have to call the save() method. 
 	//The third argument is to ask JsonDB to save the database in an human readable format. (default false)
-    jsonDb = new JsonDB('jsonDb', true, false);
+    jsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
 
     return jsonDb;
 }
