@@ -17,10 +17,10 @@ try {
 	      		dbRaspi = loadJsonDb.getData("/");
 	      		dbCloud = body;
 	      		if (JSON.stringify(dbRaspi) == dbCloud) {
-	          		// console.log('no update');
+	          		console.log('no update');
 	      		}
 	      		else {
-	      			// console.log('any update');
+	      			console.log('any update');
 	      			parseJsonCloud = JSON.parse(dbCloud);
 	      			// parseJsonRaspi = JSON.parse(dbRaspi);
 	      			zoneDevicesCloud = parseJsonCloud.zone;

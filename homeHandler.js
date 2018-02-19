@@ -91,7 +91,7 @@ function loadJsonDb(){
 	//The second argument is used to tell the DB to save after each push 
 	//If you put false, you'll have to call the save() method. 
 	//The third argument is to ask JsonDB to save the database in an human readable format. (default false)
-    jsonDb = new JsonDB('fileJson', true, false);
+    jsonDb = new JsonDB('jsonDb', true, false);
 
     return jsonDb;
 }
@@ -108,7 +108,7 @@ function controlDevice(url) {
 				//callback = responseBody[1];
 				console.log("url: " + url + " Response Code: " + response.statusCode);
 				//console.log(urlnya + ' ' + callback.toLowerCase());
-				//updateStatus 	= new JsonDB('fileJson', true, false);
+				//updateStatus 	= new JsonDB('jsonDb', true, false);
 				//switch(callback.toLowerCase()){
 				//	case "on":
 				//		updateStatus.push("/zone/" + zoneId, {status : callback.toLowerCase()}, false); 
