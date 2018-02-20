@@ -104,26 +104,26 @@ function controlDevice(url) {
 		async: true,
 		}, function (error, response, body){
 			if (error == null) {
-				//responseBody = body.split(" ");
-				//callback = responseBody[1];
+				responseBody = body.split(" ");
+				callback = responseBody[1];
 				console.log("url: " + url + " Response Code: " + response.statusCode);
-				//console.log(urlnya + ' ' + callback.toLowerCase());
-				//updateStatus 	= new JsonDB('jsonDb', true, false);
-				//switch(callback.toLowerCase()){
-				//	case "on":
-				//		updateStatus.push("/zone/" + zoneId, {status : callback.toLowerCase()}, false); 
-				//	break;
-				//	case "off":
-				//		updateStatus.push("/zone/" + zoneId, {status : callback.toLowerCase()}, false); 
-				//	break;
-				//}
+				// console.log(urlnya + ' ' + callback.toLowerCase());
+				updateStatus 	= new JsonDB('jsonDb', true, false);
+				switch(callback.toLowerCase()){
+					case "on":
+						updateStatus.push("/zone/" + zoneId, {status : callback.toLowerCase()}, false); 
+					break;
+					case "off":
+						updateStatus.push("/zone/" + zoneId, {status : callback.toLowerCase()}, false); 
+					break;
+				}
 				
 				//res.send(callback.toLowerCase());
-				// response.send("sukses");
+				response.send("success");
 			}
 			else {
 				console.log(error);
-				// response.send("error");
+				response.send("error");
 			}
 	});
 	// TODO: return status of devices using callback variable
