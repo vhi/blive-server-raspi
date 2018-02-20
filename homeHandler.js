@@ -119,11 +119,12 @@ function controlDevice(url) {
 				}
 				
 				//res.send(callback.toLowerCase());
-				response.send("success");
+				callback = "success";
 			}
 			else {
 				console.log(error);
-				response.send("error");
+				// response.send("error");
+				callback = "error";
 			}
 	});
 	// TODO: return status of devices using callback variable
