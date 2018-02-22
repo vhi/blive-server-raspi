@@ -116,14 +116,15 @@ function controlDevice(url) {
 				// 	case "off":
 				// 		updateStatus.push("/zone/" + zoneId, {status : callback.toLowerCase()}, false); 
 				// 	break;
-				}
+				response.send("success");
+				// }
 				
 				//res.send(callback.toLowerCase());
 				// callback = "success";
 			}
 			else {
 				console.log(error);
-				// response.send("error");
+				response.send("error");
 				// callback = "error";
 			}
 	});
