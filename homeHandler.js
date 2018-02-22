@@ -106,7 +106,7 @@ function controlDevice(url) {
 			if (error == null) {
 				// responseBody = body.split(" ");
 				// callback = responseBody[1];
-				// console.log("url: " + url + " Response Code: " + response.statusCode);
+				console.log("url: " + url + " Response Code: " + response.statusCode);
 				// // console.log(urlnya + ' ' + callback.toLowerCase());
 				// updateStatus 	= new JsonDB('jsonDb', true, false);
 				// switch(callback.toLowerCase()){
