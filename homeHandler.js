@@ -116,7 +116,7 @@ function controlDevice(url) {
 				// 	case "off":
 				// 		updateStatus.push("/zone/" + zoneId, {status : callback.toLowerCase()}, false); 
 				// 	break;
-				response.send("success");
+				// response.send("success");
 				// }
 				
 				//res.send(callback.toLowerCase());
@@ -124,7 +124,7 @@ function controlDevice(url) {
 			}
 			else {
 				console.log(error);
-				response.send("error");
+				// response.send("error");
 				// callback = "error";
 			}
 	});
