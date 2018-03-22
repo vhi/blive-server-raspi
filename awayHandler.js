@@ -26,6 +26,7 @@ try {
 	      			zoneDevicesCloud = parseJsonCloud.zone;
 	      			zoneDevicesRaspi = dbRaspi.zone;
 	      			for (var x in zoneDevicesCloud) {
+	      				if (! isEmpty(zoneDevicesRaspi)) {
 		      				if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
 		      					command = "";
 		      					if (zoneDevicesCloud[x].status_from == "away") {
@@ -79,6 +80,7 @@ try {
 		      						}
 		      					}
 		      				}
+	      				}
 	      			}
 	      			loadJsonDb.push("/", parseJsonCloud, false);
 	      		}
