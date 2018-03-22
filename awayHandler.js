@@ -26,6 +26,7 @@ try {
 	      			zoneDevicesCloud = parseJsonCloud.zone;
 	      			zoneDevicesRaspi = dbRaspi.zone;
 	      			for (var x in zoneDevicesCloud) {
+	      				console.log(zoneDevicesRaspi);
 	      				if (! isEmpty(zoneDevicesRaspi)) {
 		      				if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
 		      					command = "";
