@@ -17,12 +17,9 @@ try {
 			async: true,
 	  	},function(error, response, body){
 	      	if(!error && response.statusCode == 200){
-	      		try{
-		      		loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
-	      		}
-	      		catch(err){
-	      			console.log("error: " + err);
-	      		}
+	      		
+		      	loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
+		      	console.log(loadJsonDb);
 	      		dbRaspi = loadJsonDb.getData("/");
 	      		dbCloud = body;
 
@@ -76,7 +73,7 @@ try {
 		      									case "tv":
 		      										command = "1";
 		      									break;
-		      								}
+		      								}	
 		      								ipAddress = parseJsonCloud.controller[zoneDevicesCloud[x].controllerName].ip;
 		      								url = "http://" + ipAddress + "/" + zoneDevicesCloud[x].command + "/?value=" + command;
 		      								request({
