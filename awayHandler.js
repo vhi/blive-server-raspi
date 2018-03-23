@@ -29,9 +29,7 @@ try {
 	      			parseJsonCloud = JSON.parse(dbCloud);
 	      			zoneDevicesCloud = parseJsonCloud.zone;
 	      			zoneDevicesRaspi = dbRaspi.zone;
-	      			console.log("zoneDevicesCloud: " + zoneDevicesCloud);
-		      		console.log("zoneDevicesRaspi: " + zoneDevicesRaspi);
-		      		exit();
+
 	      			for (var x in zoneDevicesCloud) {
 	      				if (zoneDevicesRaspi != "") {
 		      				if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
@@ -90,7 +88,7 @@ try {
 	      				}
 	      			}
 	      		}
-	      		loadJsonDb.push("/", parseJsonCloud, false);
+	      		loadJsonDb.push("/", dbCloud, false);
 	      	}
 	      	else{
 	            console.log('error: ' + error);
