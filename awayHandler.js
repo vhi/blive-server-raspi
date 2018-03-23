@@ -89,7 +89,7 @@ try {
 	      				}
 	      			}
 	      		}
-	      		loadJsonDb.push("/", parseJsonCloud, false);
+	      		loadJsonDb.push("/", JSON.parse(dbCloud), false);
 	      	}
 	      	else{
 	            console.log('error: ' + error);
