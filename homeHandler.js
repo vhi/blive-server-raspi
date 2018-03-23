@@ -12,7 +12,7 @@ app.get('/load/allData/:rpiId', function(req, res) {
 	var deviceList = [];
 	var dataZone = dbRaspberryToLoad.getData("/zone");
 	var jsonData = {};
-	console.log(dataZone);
+	// console.log(dataZone);
 	for (x in dataZone) {
 		
 		try {
