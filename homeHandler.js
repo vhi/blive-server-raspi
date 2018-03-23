@@ -32,7 +32,7 @@ app.get('/load/allData/:rpiId', function(req, res) {
 		}
 	}
 	jsonData.devices = deviceList;
-	console.log(jsonData);
+	// console.log(jsonData);
 	
 	res.send(jsonData);
 });
