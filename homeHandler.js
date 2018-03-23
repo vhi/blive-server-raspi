@@ -2,17 +2,20 @@ var express	= require('express');
 var app	= express();
 var session = require('express-session');
 var request = require('request');
-
+var fs = require('fs');
 /* JsonDB */
 var JsonDB = require('node-json-db');
+const appPath = '/home/pi/blive-server-raspi/';
 
 // show device list for mobile apps
 app.get('/load/allData/:rpiId', function(req, res) {
-	dbRaspberryToLoad = loadJsonDb();
+	// dbRaspberryToLoad = loadJsonDb();
+	let rawdata = fs.readFileSync( appPath + 'jsonDb.json');
+	var dbRaspberryToLoad = JSON.parse(rawdata);
 	var deviceList = [];
-	var dataZone = dbRaspberryToLoad.getData("/zone");
+	var dataZone = dbRaspberryToLoad.zone;
 	var jsonData = {};
-	// console.log(dataZone);
+	console.log(dataZone);
 	for (x in dataZone) {
 		
 		try {
