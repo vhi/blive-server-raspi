@@ -9,9 +9,11 @@ try {
 	var JsonDB = require('node-json-db');
 	var config = loadConfig();
 	config = config.getData('/');
+	var url = "http://119.235.252.13:777/load/jsonForRaspberry/" + config.raspberryId;
+	console.log('url');
 	var requestLoop = setInterval(function(){
 	  	request({
-	      	url: "http://119.235.252.13:777/load/jsonForRaspberry/" + config.raspberryId,
+	      	url: url,
 	      	method: "GET",
 			async: true,
 	  	},function(error, response, body){
