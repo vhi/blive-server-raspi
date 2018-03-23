@@ -85,10 +85,8 @@ try {
 		      				}
 	      				}
 	      			}
-	      			console.log(parseJsonCloud);
-	      			exit();
-	      			loadJsonDb.push("/", parseJsonCloud, false);
 	      		}
+	      		loadJsonDb.push("/", parseJsonCloud, false);
 	      	}
 	      	else{
 	            console.log('error: ' + error);
