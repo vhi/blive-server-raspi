@@ -1,10 +1,10 @@
+const appPath = '/home/pi/blive-server-raspi/';
 try {
 	var express	= require('express');
 	var app	= express();
 	var session = require('express-session');
 	var request = require('request');
 	var fs = require('fs');
-	const appPath = '/home/pi/blive-server-raspi/';
 
 	/* JsonDB */
 	var JsonDB = require('node-json-db');
