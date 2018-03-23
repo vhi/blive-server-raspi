@@ -17,15 +17,15 @@ try {
 			async: true,
 	  	},function(error, response, body){
 	      	if(!error && response.statusCode == 200){
-	      		loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
+	      		loadJsonDb = loadJsonDb();
 	      		dbRaspi = loadJsonDb.getData("/");
 	      		dbCloud = body;
-	      		parseJsonCloud = JSON.parse(dbCloud);
 	      		if (JSON.stringify(dbRaspi) == dbCloud) {
 	          		console.log('no update');
 	      		}
 	      		else {
 	      			console.log('any update');
+	      			parseJsonCloud = JSON.parse(dbCloud);
 	      			zoneDevicesCloud = parseJsonCloud.zone;
 	      			zoneDevicesRaspi = dbRaspi.zone;
 	      			for (var x in zoneDevicesCloud) {
