@@ -111,7 +111,7 @@ function loadJsonDb(){
 }
 
 function loadConfig() {
-	configDb = new JsonDB('config', true, false);
+	configDb = new JsonDB('/home/pi/blive-server-raspi/config', true, false);
 
     return configDb;
 }
