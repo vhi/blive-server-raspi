@@ -3,6 +3,7 @@ try {
 	var app	= express();
 	var session = require('express-session');
 	var request = require('request');
+	var fs = require('fs');
 
 
 	/* JsonDB */
@@ -17,7 +18,9 @@ try {
 			async: true,
 	  	},function(error, response, body){
 	      	if(!error && response.statusCode == 200){
-	      		
+	      		let rawdata = fs.readFileSync('/home/pi/blive-server-raspi/jsonDb.json');  
+				let student = JSON.parse(rawdata);  
+				console.log(student);  
 		      	loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
 		      	console.log(loadJsonDb.getData("/"));
 	      		dbRaspi = loadJsonDb.getData("/");
