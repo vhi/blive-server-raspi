@@ -25,11 +25,9 @@ try {
 	      		else {
 	      			console.log('any update');
 	      			parseJsonCloud = JSON.parse(dbCloud);
-	      			// parseJsonRaspi = JSON.parse(dbRaspi);
 	      			zoneDevicesCloud = parseJsonCloud.zone;
 	      			zoneDevicesRaspi = dbRaspi.zone;
 	      			for (var x in zoneDevicesCloud) {
-	      				console.log(zoneDevicesRaspi);
 	      				if (zoneDevicesRaspi == "") {
 		      				if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
 		      					command = "";
