@@ -20,9 +20,7 @@ try {
 	      		loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
 	      		dbRaspi = loadJsonDb.getData("/");
 	      		dbCloud = body;
-	      		console.log("dbRaspi: " + dbRaspi);
-	      		console.log("dbCloud: " + dbCloud);
-	      		exit();
+
 	      		if (JSON.stringify(dbRaspi) == dbCloud) {
 	          		console.log('no update');
 	      		}
@@ -31,6 +29,9 @@ try {
 	      			parseJsonCloud = JSON.parse(dbCloud);
 	      			zoneDevicesCloud = parseJsonCloud.zone;
 	      			zoneDevicesRaspi = dbRaspi.zone;
+	      			console.log("zoneDevicesCloud: " + zoneDevicesCloud);
+		      		console.log("zoneDevicesRaspi: " + zoneDevicesRaspi);
+		      		exit();
 	      			for (var x in zoneDevicesCloud) {
 	      				if (zoneDevicesRaspi != "") {
 		      				if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
