@@ -26,7 +26,7 @@ app.get('/load/allData/:rpiId', function(req, res) {
 						
 			deviceList.push(dataZone[x]);
 		} catch(error) {
-			//console.log('error: ' + error);
+			console.log('error: ' + error);
 		}
 	}
 	jsonData.devices = deviceList;
