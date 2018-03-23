@@ -21,12 +21,12 @@ try {
 	      		dbRaspi = loadJsonDb.getData("/");
 	      		dbCloud = body;
 	      		parseJsonCloud = JSON.parse(dbCloud);
-	      		loadJsonDb.push("/", parseJsonCloud, false); 
 	      		if (JSON.stringify(dbRaspi) == dbCloud) {
 	          		console.log('no update');
 	      		}
 	      		else {
 	      			console.log('any update');
+	      			loadJsonDb.push("/", parseJsonCloud, false); 
 	      			zoneDevicesCloud = parseJsonCloud.zone;
 	      			zoneDevicesRaspi = dbRaspi.zone;
 	      			for (var x in zoneDevicesCloud) {
