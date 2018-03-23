@@ -26,7 +26,8 @@ try {
 	      		}
 	      		else {
 	      			console.log('any update');
-	      			loadJsonDb.push("/", parseJsonCloud, false); 
+	      			loadJsonDb.push("/", parseJsonCloud, false);
+	      			console.log(parseJsonCloud);
 	      			zoneDevicesCloud = parseJsonCloud.zone;
 	      			zoneDevicesRaspi = dbRaspi.zone;
 	      			for (var x in zoneDevicesCloud) {
