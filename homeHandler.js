@@ -15,12 +15,10 @@ app.get('/load/allData/:rpiId', function(req, res) {
 	var deviceList = [];
 	var dataZone = dbRaspberryToLoad.zone;
 	var jsonData = {};
-	console.log(dataZone);
 	for (x in dataZone) {
 		
 		try {
-			roomId = dbRaspberryToLoad.getData("/room/" + dataZone[x].roomName).id;
-			roomName = dbRaspberryToLoad.getData("/room/" + dataZone[x].roomName).name;
+			roomName = dbRaspberryToLoad.room[dataZone[x].roomName].name;
 
 			dataZone[x].zoneId = x;
 			dataZone[x].roomName = roomName;
@@ -34,6 +32,7 @@ app.get('/load/allData/:rpiId', function(req, res) {
 		}
 	}
 	jsonData.devices = deviceList;
+	console.log(jsonData);
 	
 	res.send(jsonData);
 });
