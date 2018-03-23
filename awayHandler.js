@@ -17,9 +17,12 @@ try {
 			async: true,
 	  	},function(error, response, body){
 	      	if(!error && response.statusCode == 200){
-	      		loadJsonDb = loadJsonDb();
+	      		loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
 	      		dbRaspi = loadJsonDb.getData("/");
 	      		dbCloud = body;
+	      		console.log("dbRaspi: " + dbRaspi);
+	      		console.log("dbCloud: " + dbCloud);
+	      		exit();
 	      		if (JSON.stringify(dbRaspi) == dbCloud) {
 	          		console.log('no update');
 	      		}
