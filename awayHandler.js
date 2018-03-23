@@ -10,7 +10,6 @@ try {
 	var config = loadConfig();
 	config = config.getData('/');
 	var url = "http://119.235.252.13:777/load/jsonForRaspberry/" + config.raspberryId;
-	console.log(url);
 	var requestLoop = setInterval(function(){
 	  	request({
 	      	url: url,
@@ -21,12 +20,12 @@ try {
 	      		loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
 	      		dbRaspi = loadJsonDb.getData("/");
 	      		dbCloud = body;
+	      		parseJsonCloud = JSON.parse(dbCloud);
 	      		if (JSON.stringify(dbRaspi) == dbCloud) {
 	          		console.log('no update');
 	      		}
 	      		else {
 	      			console.log('any update');
-	      			parseJsonCloud = JSON.parse(dbCloud);
 	      			zoneDevicesCloud = parseJsonCloud.zone;
 	      			zoneDevicesRaspi = dbRaspi.zone;
 	      			for (var x in zoneDevicesCloud) {
