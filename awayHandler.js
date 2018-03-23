@@ -19,7 +19,7 @@ try {
 	      	if(!error && response.statusCode == 200){
 	      		
 		      	loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
-		      	console.log(loadJsonDb);
+		      	console.log(loadJsonDb.getData("/"));
 	      		dbRaspi = loadJsonDb.getData("/");
 	      		dbCloud = body;
 
