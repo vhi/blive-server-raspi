@@ -4,11 +4,14 @@ try {
 	var session = require('express-session');
 	var request = require('request');
 
+
 	/* JsonDB */
 	var JsonDB = require('node-json-db');
+	var config = loadConfig();
+	console.log(config.raspberryId);
 	var requestLoop = setInterval(function(){
 	  	request({
-	      	url: "http://119.235.252.13:777/load/jsonForRaspberry/9988776655",
+	      	url: "http://119.235.252.13:777/load/jsonForRaspberry/" + raspberryId,
 	      	method: "GET",
 			async: true,
 	  	},function(error, response, body){
@@ -83,7 +86,6 @@ try {
 		      				}
 	      				}
 	      			}
-	      			loadJsonDb.push("/", parseJsonCloud, false);
 	      		}
 	      	}
 	      	else{
@@ -106,5 +108,11 @@ function loadJsonDb(){
     jsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
 
     return jsonDb;
+}
+
+function loadConfig() {
+	configDb = new JsonDB('config', true, false);
+
+    return configDb;
 }
 
