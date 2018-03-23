@@ -32,6 +32,9 @@ try {
 
 	      			for (var x in zoneDevicesCloud) {
 	      				if (zoneDevicesRaspi != "") {
+	      					console.log("zoneDevicesCloud[x].status: " + zoneDevicesCloud[x].status);
+	      					console.log("zoneDevicesRaspi[x].status: " + zoneDevicesRaspi[x].status);
+	      					exit();
 		      				if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
 		      					command = "";
 		      					if (zoneDevicesCloud[x].status_from == "away") {
