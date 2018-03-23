@@ -10,7 +10,7 @@ try {
 	var config = loadConfig();
 	config = config.getData('/');
 	var url = "http://119.235.252.13:777/load/jsonForRaspberry/" + config.raspberryId;
-	console.log('url');
+	console.log(url);
 	var requestLoop = setInterval(function(){
 	  	request({
 	      	url: url,
