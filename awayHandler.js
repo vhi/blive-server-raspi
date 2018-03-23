@@ -19,8 +19,8 @@ try {
 	  	},function(error, response, body){
 	      	if(!error && response.statusCode == 200){
 	      		let rawdata = fs.readFileSync('/home/pi/blive-server-raspi/jsonDb.json');  
-				let student = JSON.parse(rawdata);  
-				console.log(student);  
+				  
+				console.log("rawdata: " + rawdata);  
 		      	loadJsonDb = new JsonDB('/home/pi/blive-server-raspi/jsonDb', true, false);
 		      	console.log(loadJsonDb.getData("/"));
 	      		dbRaspi = loadJsonDb.getData("/");
