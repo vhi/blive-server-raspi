@@ -8,7 +8,7 @@ try {
 	/* JsonDB */
 	var JsonDB = require('node-json-db');
 	var config = loadConfig();
-	console.log(config.raspberryId);
+	console.log(config.getData('/'));
 	var requestLoop = setInterval(function(){
 	  	request({
 	      	url: "http://119.235.252.13:777/load/jsonForRaspberry/" + raspberryId,
