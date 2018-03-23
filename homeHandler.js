@@ -9,6 +9,7 @@ var JsonDB = require('node-json-db');
 // show device list for mobile apps
 app.get('/load/allData/:rpiId', function(req, res) {
 	dbRaspberryToLoad = loadJsonDb();
+	console.log(dbRaspberryToLoad);
 	var deviceList = [];
 	var dataZone = dbRaspberryToLoad.getData("/zone");
 	var jsonData = {};
