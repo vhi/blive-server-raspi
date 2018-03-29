@@ -26,9 +26,9 @@ try {
                 zoneDevicesCloud = parseJsonCloud.zone;
                 zoneDevicesRaspi = dbRaspi.zone;
                 for (var x in zoneDevicesCloud) {
-                  if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
-                    command = "";
-                    if (zoneDevicesCloud[x].status_from == "away") {
+                  if (zoneDevicesCloud[x].status_from == "away") {
+                    if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
+                      command = "";
                       switch(zoneDevicesCloud[x].status) {
                         case "on":
                           switch(zoneDevicesCloud[x].sort){
@@ -77,10 +77,10 @@ try {
                           console.log("Eksekusi: " + url);
                         break;
                       }
+                    loadJsonDb.push("/", parseJsonCloud, false);
                     }
                   }
                 }
-                loadJsonDb.push("/", parseJsonCloud, false);
               }
             }
             else{
