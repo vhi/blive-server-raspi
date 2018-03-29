@@ -27,6 +27,8 @@ try {
                 zoneDevicesRaspi = dbRaspi.zone;
                 for (var x in zoneDevicesCloud) {
                   if (zoneDevicesCloud[x].status_from == "away") {
+                    console.log(zoneDevicesRaspi[x]);
+                    exit();
                     if (zoneDevicesCloud[x].status != zoneDevicesRaspi[x].status){
                       command = "";
                       switch(zoneDevicesCloud[x].status) {
