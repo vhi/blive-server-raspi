@@ -19,8 +19,10 @@ app.get('/load/allData/:rpiId', function(req, res) {
 		
 		try {
 			roomName = dbRaspberryToLoad.room[dataZone[x].roomName].name;
+			ipAddress = dbRaspberryToLoad.getData("/controller/" + dataZone[x].controllerName).ip;
 
-			dataZone[x].zoneId = x;
+			dataZone[x].zoneId		= x;
+			dataZone[x].ipAddress   = ipAddress;
 			dataZone[x].roomName = roomName;
 			
 			delete dataZone[x].controllerName;
